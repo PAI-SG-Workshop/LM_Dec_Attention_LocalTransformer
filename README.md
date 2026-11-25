@@ -4,8 +4,8 @@ LocalTransformer - Attention family, decoder-only byte-level language model, sta
 
 ## Status
 
-- Verification level: **Runnable**
-- Failure class: Implementation Unverified: overfit check not passed
+- Verification level: **Smoke-Tested**
+- Failure class: Experiment Incomplete: benchmarks not finished
 
 ## Provenance
 
@@ -22,6 +22,10 @@ All models share one protocol: 256-byte vocabulary, dim 512, 6 layers, 8 heads x
 
 - Parameters: 23.38 M
 - Causality check: pass (largest change of earlier outputs 0.0e+00)
+- Overfit check (4 x 256 bytes): 5.731 -> 0.001 nats, pass
+- LM-02 enwik8 (200M tokens): valid 1.493 / test 1.478 bits per byte
+- Peak GPU memory at length 2048 (batch 1): train 1175 MB, inference 183 MB
+- Peak GPU memory at length 8192 (batch 1): train 4555 MB, inference 625 MB
 
 ## Tests
 
